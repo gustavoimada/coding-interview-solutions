@@ -31,16 +31,6 @@ scripts/
   new-leetcode-problem.ps1
 ```
 
-## Solution Format
-
-Each problem should have its own folder:
-
-```text
-leetcode/medium/two-sum/
-  README.md
-  Solution.java
-```
-
 Each problem README should include:
 
 - Problem link
@@ -70,13 +60,3 @@ Each problem README should include:
 - Dynamic programming
 - Greedy algorithms
 - Binary search
-
-## Creating a New Problem
-
-Use the helper script:
-
-```powershell
-.\scripts\new-leetcode-problem.ps1 -Difficulty medium -Slug two-sum -Title "Two Sum" -Topics "Array, Hash Map"
-```
-
-Then edit the generated `README.md` and `Solution.java`.
