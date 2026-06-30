@@ -23,10 +23,6 @@ leetcode/
 topics/
   README.md
 
-templates/
-  problem-readme.md
-  Solution.java
-
 scripts/
   new-leetcode-problem.ps1
 ```
@@ -60,3 +56,13 @@ Each problem README should include:
 - Dynamic programming
 - Greedy algorithms
 - Binary search
+
+## Creating a New Problem
+
+Use the helper script:
+
+```powershell
+.\scripts\new-leetcode-problem.ps1 -Difficulty medium -Slug two-sum -Title "Two Sum" -Topics "Array, Hash Map"
+```
+
+The script creates the problem folder with a starter `README.md` and `Solution.java`. Then you only need to fill in the explanation and replace the Java method signature with the one required by the platform.
