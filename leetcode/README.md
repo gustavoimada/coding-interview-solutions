@@ -1,9 +1,9 @@
-# LeetCode Solutions
+# LeetCode
 
-Solutions are organized by difficulty:
+Solutions are organized by study plan first, so the repository shows a clear learning path instead of a loose list of random problems.
 
-- [Easy](easy)
-- [Medium](medium)
-- [Hard](hard)
+## Study Plans
 
-Each problem folder should contain a short explanation and the source code.
+| Study Plan | Progress |
+|---|---:|
+| [LeetCode 75](leetcode-75) | 0 / 75 |

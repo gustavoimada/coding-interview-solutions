@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory = $true)]
-    [ValidateSet("easy", "medium", "hard")]
-    [string] $Difficulty,
+    [ValidateRange(1, 75)]
+    [int] $Number,
 
     [Parameter(Mandatory = $true)]
     [string] $Slug,
@@ -9,13 +9,18 @@ param(
     [Parameter(Mandatory = $true)]
     [string] $Title,
 
+    [Parameter(Mandatory = $true)]
+    [ValidateSet("easy", "medium", "hard")]
+    [string] $Difficulty,
+
     [string] $Topics = ""
 )
 
 $ErrorActionPreference = "Stop"
 
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
-$problemDir = Join-Path $repoRoot "leetcode\$Difficulty\$Slug"
+$folderName = "{0:D3}-{1}" -f $Number, $Slug
+$problemDir = Join-Path $repoRoot "leetcode\leetcode-75\$folderName"
 
 if (Test-Path $problemDir) {
     throw "Problem folder already exists: $problemDir"
@@ -23,11 +28,14 @@ if (Test-Path $problemDir) {
 
 New-Item -ItemType Directory -Force -Path $problemDir | Out-Null
 
+$difficultyLabel = $Difficulty.Substring(0, 1).ToUpper() + $Difficulty.Substring(1)
+
 $readme = @"
-# $Title
+# $Number. $Title
 
 **Platform:** LeetCode
-**Difficulty:** $Difficulty
+**Study Plan:** LeetCode 75
+**Difficulty:** $difficultyLabel
 **Topics:** $Topics
 **Link:** https://leetcode.com/problems/$Slug/
 
@@ -55,7 +63,8 @@ class Solution {
 }
 "@
 
-Set-Content -LiteralPath (Join-Path $problemDir "README.md") -Value $readme -Encoding UTF8
-Set-Content -LiteralPath (Join-Path $problemDir "Solution.java") -Value $solution -Encoding UTF8
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+[System.IO.File]::WriteAllText((Join-Path $problemDir "README.md"), $readme, $utf8NoBom)
+[System.IO.File]::WriteAllText((Join-Path $problemDir "Solution.java"), $solution, $utf8NoBom)
 
 Write-Host "Created $problemDir"

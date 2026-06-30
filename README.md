@@ -16,15 +16,13 @@ The goal is not only to store accepted code, but to document the reasoning behin
 
 ```text
 leetcode/
-  easy/
-  medium/
-  hard/
+  leetcode-75/
 
 topics/
   README.md
 
 scripts/
-  new-leetcode-problem.ps1
+  new-leetcode-75-problem.ps1
 ```
 
 Each problem README should include:
@@ -36,13 +34,11 @@ Each problem README should include:
 - Complexity analysis
 - Code notes when useful
 
-## Progress
+## Study Plans
 
-| Platform | Difficulty | Solved |
-|---|---:|---:|
-| LeetCode | Easy | 0 |
-| LeetCode | Medium | 0 |
-| LeetCode | Hard | 0 |
+| Study Plan | Progress |
+|---|---:|
+| [LeetCode 75](leetcode/leetcode-75) | 0 / 75 |
 
 ## Topics Covered
 
@@ -62,7 +58,7 @@ Each problem README should include:
 Use the helper script:
 
 ```powershell
-.\scripts\new-leetcode-problem.ps1 -Difficulty medium -Slug two-sum -Title "Two Sum" -Topics "Array, Hash Map"
+.\scripts\new-leetcode-75-problem.ps1 -Number 1 -Slug merge-strings-alternately -Title "Merge Strings Alternately" -Difficulty easy -Topics "Two Pointers, String"
 ```
 
-The script creates the problem folder with a starter `README.md` and `Solution.java`. Then you only need to fill in the explanation and replace the Java method signature with the one required by the platform.
+The script creates a numbered problem folder with a starter `README.md` and `Solution.java`. Then you only need to fill in the explanation and replace the Java method signature with the one required by LeetCode.
