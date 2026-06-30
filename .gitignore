@@ -1,0 +1,21 @@
+# Java
+*.class
+out/
+build/
+target/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS/local
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Archives
+*.zip
+*.rar
+*.7z
